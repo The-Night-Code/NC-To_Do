@@ -16,8 +16,7 @@
 	    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" type="text/css" > <!--  -->
 	    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" >
 	    <link href="{% static 'css/templatemo-style.css' %}" rel="stylesheet" type="text/css"> 
-
-	    <link rel="stylesheet" type="text/css" href="{% static 'css/templatemo-style.css' %}">
+	    
 	    
 	</head>
 	<body class="light-gray-bg">
@@ -26,17 +25,20 @@
 	          <div class="square"></div>
 	          <h1>Visual Admin</h1>
 	        </header>
-	        <form action="ToDo_app/login" method="POST" class="templatemo-login-form">
-	        	<div class="form-group">
+	        <form action="" method="POST" class="templatemo-login-form">
+	        	{% csrf_token %}
+				<!-- email -->
+				<div class="form-group">
 	        		<div class="input-group">
 		        		<div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>	        		
-		              	<input type="text" class="form-control" placeholder="js@dashboard.com">           
+		              	<input type="text" class="form-control" placeholder="js@dashboard.com" name="email" required>           
 		          	</div>	
 	        	</div>
+				<!-- password -->
 	        	<div class="form-group">
 	        		<div class="input-group">
 		        		<div class="input-group-addon"><i class="fa fa-key fa-fw"></i></div>	        		
-		              	<input type="password" class="form-control" placeholder="******">           
+		              	<input type="password" class="form-control" placeholder="******" name="password" required>           
 		          	</div>	
 	        	</div>	          	
 	          	<div class="form-group">
@@ -45,14 +47,16 @@
 						<label for="c1"><span></span>Remember me</label>
 				    </div>				    
 				</div>
+				
 				<div class="form-group">
-					<input type="Submit" class="templatemo-blue-button width-100" name="login" value="login"/>
-
+					<!-- <input type="Submit" class="templatemo-blue-button width-100" name="login" value="login"/> -->
+					
+					<Button type="Submit" class="templatemo-blue-button width-100" name="login" value="login">Login</Button>
 				</div>
 	        </form>
 		</div>
 		<div class="templatemo-content-widget templatemo-login-widget templatemo-register-widget white-bg">
-			<p>Not a registered user yet? <strong><a href="#" class="blue-text">Sign up now!</a></strong></p>
+			<p>Not a registered user yet? <strong><a href="signup" class="blue-text">Sign up now!</a></strong></p>
 		</div>
 	</body>
 </html>
