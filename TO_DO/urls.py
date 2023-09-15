@@ -1,9 +1,10 @@
 from django.contrib import admin
 from django.urls import path
-from ToDo_app.views import Home, Login, Signup
+from ToDo_app.views import Home, LoginU, SignupU,LogoutU
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', Home),
-    path('login/', Login),
-    path('signup/', Signup)
+    path('login/', LoginU),
+    path('signup/', SignupU),
+    path('logout/', LogoutU)
 ]
