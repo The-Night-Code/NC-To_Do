@@ -10,7 +10,9 @@ from django.contrib.auth import authenticate, login , logout
 # Create your views here.
 
 def Home(request):
-    return render(request,'html/home.html')
+    
+    
+    return render(request,'html/home.html',{"name":"night","username":"nightcode"})
     #return render(request,'html/home.html',{})
     
 
@@ -81,3 +83,7 @@ def SignupU(request):
 def LogoutU(request):
     logout(request)
     return render(request,'html/login.html')
+
+def StickyWall(request):
+    
+    return render(request,'html/stickywall.html')

@@ -21,7 +21,10 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
 
+        .tablinks{background-color: transparent;border:None;}
+    </style>
   </head>
   <body>  
     {% if user.is_authenticated %}
@@ -78,10 +81,43 @@
           </div>
         </div>
 
-        <div class="templatemo-content-container">
 
-          
+
+        <div class="templatemo-top-nav-container">
+            <div class="row">
+              <nav class="templatemo-top-nav col-lg-12 col-md-12">
+                <ul class="text-uppercase"><!-- class="active"-->
+                  <li><button class="tablinks" id="t1" onclick="openCity(event, 'SW','t1')" >Sticky Wall</button></li>
+                  <li><button class="tablinks" id="t2" onclick="openCity(event, 'ADD_SW','t2')">ADD Sticky Wall</button></li>
+                  
+                </ul>  
+              </nav> 
+            </div>
+          </div>
+
+
+
+        <div class="templatemo-content-container">
           <div class="templatemo-flex-row flex-content-row">
+
+
+            
+            <div id="SW" class="tabcontent" >
+                <h1>test 11111</h1>
+            </div>
+
+
+
+
+            <div id="ADD_SW" class="tabcontent" style="display:none;">
+                <h1>test 22222</h1>
+            </div>
+
+
+
+
+
+
             <div class="col-1">
               <div class="panel panel-default templatemo-content-widget white-bg no-padding templatemo-overflow-hidden">
                 <div class="panel-heading templatemo-position-relative"><h2 class="text-uppercase">User Table</h2></div>
@@ -387,8 +423,30 @@
           areaChart.draw(areaData, areaOptions);
       }
       
+
+    
+      function openCity(evt, cityName,id) {
+        var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+            }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace("active", "");
+        index=i;
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+
+
+      
       
     </script>
     <script type="text/javascript" src="js/templatemo-script.js"></script>      <!-- Templatemo Script -->
   </body>
 </html>
+
+
