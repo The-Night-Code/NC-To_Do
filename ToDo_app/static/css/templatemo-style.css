@@ -585,7 +585,7 @@ input[type="radio"]:checked + label span {
 	}
 	.templatemo-left-nav a.active,
 	.templatemo-left-nav a:hover {
-		border-left: 6px solid #13895F;		
+		border-left: 6px solid #138189;		
 	}	
 	.templatemo-top-nav-container {	padding: 17px 30px;	}
 	.templatemo-top-nav a { padding: 0 15px; }

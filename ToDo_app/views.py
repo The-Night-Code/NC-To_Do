@@ -3,7 +3,7 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.forms import inlineformset_factory
 from django.contrib.auth.models import User
 
-
+from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login , logout
 
 
@@ -82,7 +82,8 @@ def SignupU(request):
     
 def LogoutU(request):
     logout(request)
-    return render(request,'html/login.html')
+    return redirect("/login/")
+    #return render(request,'html/login.html')
 
 def StickyWall(request):
     
