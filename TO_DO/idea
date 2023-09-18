@@ -1,0 +1,30 @@
+{% define 1 as index2 %}
+                  {% for i in sticky_wall_c %} 
+                    
+
+                    {% if index2 == 1 %}
+                      <div class="templatemo-flex-row flex-content-row">
+                      {% define 2 as index2 %}
+
+                    {% else %}
+                      {% if index2 == 2 %}
+                        {% define 3 as index2 %}
+
+                      {% else %}
+                          {% if index2 == 3 %}
+                            </div>
+                            {% define 1 as index2 %}
+                          {% endif %}
+
+                      {% endif %}
+
+
+                    {% endif %}
+
+                      <div class="templatemo-content-widget white-bg col-1 ">
+                        <h2 class="text-uppercase">{{i.title}}</h2>  
+                        <p>{{i.title}}</p>
+                      </div>
+                    
+                   {% endfor %}
+                </div>

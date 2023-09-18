@@ -99,5 +99,21 @@ def Reminder(request):
 
 def StickyWall(request):
     
-    return render(request,'html/stickywall.html')
+    data={"range":4,
+          "sticky_wall_c":[{"title":"title 1111","content":"content 11111"},
+                           {"title":"title 222","content":"content 222"},
+                           {"title":"title 333","content":"content 333"},
+                           {"title":"title 444","content":"content 444"},
+                           {"title":"title 55","content":"content 55"},
+                           {"title":"title 666","content":"content 6666"},
+                           {"title":"title 777","content":"content 777"},
+                           {"title":"title 888","content":"content 88"},
+                           {"title":"title 999","content":"content 99"},
+                           {"title":"title 1000","content":"content 1000"},
+                           {"title":"title 1111","content":"content 11111"},
+                           {"title":"title 1111","content":"content 11111"},
+                           {"title":"title 1111","content":"content 11111"},
+                           {"title":"title 1111","content":"content 11111"}]
+          }
+    return render(request,'html/stickywall.html',data)
   
