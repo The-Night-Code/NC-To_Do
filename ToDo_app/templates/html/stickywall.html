@@ -42,7 +42,7 @@
           <h1>TO DO</h1>
         </header>
         <div class="profile-photo-container">
-          <img src="ToDo_app/profile-photo.jpg"  alt="Profile Photo" class="img-responsive">  
+          <img src="{% static 'ToDo_app/profile-photo.jpg' %}" alt="Profile Photo">
           <div class="profile-photo-overlay"></div>
         </div>      
         <!-- Search box -->
@@ -74,10 +74,10 @@
           <div class="row">
             <nav class="templatemo-top-nav col-lg-12 col-md-12">
               <ul class="text-uppercase"><!-- class="active"-->
-                <li><a href="" >Task List</a></li>
-                <li><a href="">Top Priorities</a></li>
-                <li><a href="">Reminder</a></li>
-                <li><a href="">Sticky Wall</a></li>
+                <li><a href="tasklist" >Task List</a></li>
+                <li><a href="toppriorities">Top Priorities</a></li>
+                <li><a href="reminder">Reminder</a></li>
+                <li><a href="/stickywall/">Sticky Wall</a></li>
               </ul>  
             </nav> 
           </div>

@@ -85,6 +85,19 @@ def LogoutU(request):
     return redirect("/login/")
     #return render(request,'html/login.html')
 
+def TaskList(request):
+    
+    return render(request,'html/tasklist.html')
+
+def TopPriorities(request):
+    
+    return render(request,'html/toppriorities.html')
+
+def Reminder(request):
+    
+    return render(request,'html/reminder.html')
+
 def StickyWall(request):
     
     return render(request,'html/stickywall.html')
+  
