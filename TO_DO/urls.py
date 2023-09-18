@@ -7,6 +7,7 @@ urlpatterns = [
     path('login/', LoginU),
     path('signup/', SignupU),
     path('logout/', LogoutU),
+    
     path('tasklist/', TaskList),
     path('toppriorities/', TopPriorities),
     path('reminder/', Reminder),
