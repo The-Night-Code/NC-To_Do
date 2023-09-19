@@ -44,6 +44,8 @@
         }
 
         .templatemo_sticky_wall p {height:85%;}
+        .sticky_wall_id{position: absolute;margin-top:-30px;}
+        .sticky_wall_remove{background-color: transparent;border:None;}
     </style>
   </head>
   <body>  
@@ -122,67 +124,55 @@
               <div class="templatemo-content-container">
 
                 <!--  first row-->
-                <div class="templatemo-flex-row flex-content-row">
-
-                  <div class="templatemo_sticky_wall white-bg col-1 ">
-                    <!--<i class="fa fa-times"></i>-->
-                    <h2 class="text-uppercase">Maris</h2>
-                    <h3 class="text-uppercase margin-bottom-10">Design Project</h3>
-                    <p>asdfasdlfhbasdlfhbajksdhbf alshdbflkasbdfasbdfa dfjhasbdfjhabsdfkjhvbasdf alkshdbflahjsgdfjhaasdfsdfdfasdfasdfdfasdfasdf</p>
-                  </div>
-
-                  <div class="templatemo-content-widget white-bg col-1 ">
-                    <!--<i class="fa fa-times"></i>-->
-                    <h2 class="text-uppercase">Maris</h2>
-                    <h3 class="text-uppercase margin-bottom-10">Design Project</h3>
-                    <p></p>
-                  </div>
-
-
-                  <div class="templatemo-content-widget white-bg col-1 ">
-                    <!--<i class="fa fa-times"></i>-->
-                    <h2 class="text-uppercase">Maris</h2>
-                    <h3 class="text-uppercase margin-bottom-10">Design Project</h3>
-                    <p></p>
-                  </div>
-
-                  <div class="templatemo-content-widget white-bg col-1 ">
-                    <h2 class="text-uppercase">Maris</h2>
-                    <p></p>
-                  </div>
-            
-                </div>
+                
                 <!-- end first row-->
 
-
+                <form action="" method="POST" class="">
+                  {% csrf_token %}
                 {% define 1 as index2 %}
-                {% for i in sticky_wall_c %} 
-                  
-                  {%if index2 == 1 %}
-                  <div class="templatemo-flex-row flex-content-row">
-                   {% define 2 as index2 %}
-
-                  {% else %}
-                    {%if index2 == 2 %}
-                      {% define 3 as index2 %}
+                  {% for i in sticky_wall_c %} 
                     
+
+                    {% if index2 == 1 %}
+                      <div class="templatemo-flex-row flex-content-row">
+                      {% define 2 as index2 %}
+                      <div class="templatemo-content-widget white-bg col-1 ">
+                        <Button type="Submit"class="sticky_wall_remove" name=""  value="{{i.id}}"><i class="fa fa-times"></i></Button>
+                        
+
+                        <h2 class="text-uppercase">{{i.title}}</h2>  
+                        <p>{{i.content}}</p>
+                      </div>
+
                     {% else %}
-                        {%if index2 == 3 %}
+                      {% if index2 == 2 %}
+                        {% define 3 as index2 %}
+                        <div class="templatemo-content-widget white-bg col-1 ">
+                          <Button type="Submit"class="sticky_wall_remove" name=""  value="{{i.id}}"><i class="fa fa-times"></i></Button>
+                          <h2 class="text-uppercase">{{i.title}}</h2>  
+                          <p>{{i.content}}</p>
+                        </div>
+                      {% else %}
+                          {% if index2 == 3 %}
+                          <div class="templatemo-content-widget white-bg col-1 ">
+                            <Button type="Submit"class="sticky_wall_remove" name=""  value="{{i.id}}"><i class="fa fa-times"></i></Button>
+                            <h2 class="text-uppercase">{{i.title}}</h2>  
+                            <p>{{i.content}}</p>
                           </div>
-                          {% define 1 as index2 %}
-                        {% endif %}
+                            </div>
+                            {% define 1 as index2 %}
+                          {% endif %}
+
                       {% endif %}
-                  {% endif %}
 
 
+                    {% endif %}
 
-                    <div class="templatemo-content-widget white-bg col-1 ">
-                      <h2 class="text-uppercase">{{i.title}}</h2>  
-                      <p>{{i.title}}</p>
-                    </div>
-                  
-                 {% endfor %}
+                      
+                    
+                   {% endfor %}
                 </div>
+              </form>
                 
             </div>
 

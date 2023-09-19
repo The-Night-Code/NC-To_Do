@@ -100,20 +100,38 @@ def Reminder(request):
 def StickyWall(request):
     
     data={"range":4,
-          "sticky_wall_c":[{"title":"title 1111","content":"content 11111"},
-                           {"title":"title 222","content":"content 222"},
-                           {"title":"title 333","content":"content 333"},
-                           {"title":"title 444","content":"content 444"},
-                           {"title":"title 55","content":"content 55"},
-                           {"title":"title 666","content":"content 6666"},
-                           {"title":"title 777","content":"content 777"},
-                           {"title":"title 888","content":"content 88"},
-                           {"title":"title 999","content":"content 99"},
-                           {"title":"title 1000","content":"content 1000"},
-                           {"title":"title 1111","content":"content 11111"},
-                           {"title":"title 1111","content":"content 11111"},
-                           {"title":"title 1111","content":"content 11111"},
-                           {"title":"title 1111","content":"content 11111"}]
+          "sticky_wall_c":[{'id':"a0","title":"title 1111","content":"content 11111"},
+                           {'id':"a1","title":"title 222","content":"content 2a123423422"},
+                           {'id':"a2","title":"title 333","content":"content 333"},
+                           {'id':"a3","title":"title 444","content":"content 444"},
+                           {'id':"a4","title":"title 55","content":"content 55"},
+                           {'id':"a5","title":"title 666","content":"content 6666"},
+                           {'id':"a6","title":"title 777","content":"content 777contcontent 777ent 777content 777content 777content 777content 777content 777"},
+                           {'id':"a7","title":"title 888","content":"content 88"},
+                           {'id':"a8","title":"title 999","content":"content 99"},
+                           {'id':"a9","title":"title 1000","content":"content 1000"},
+                           {'id':"a10","title":"title 1111","content":"content 11111"},
+                           {'id':"a11","title":"title 1111","content":"content 11111"},
+                           {'id':"a12","title":"title 1111","content":"content 11111"},
+                           {'id':"a13","title":"title 1111","content":"content 11111"},
+                           {'id':"a14","title":"title 1000","content":"content 1000"},
+                           {'id':"a15","title":"title 1000","content":"content 123124edgadfg452346sdfg0content 123124edgadfg452346sdfg0content 123124edgadfg452346sdfg0content 123124edgadfg452346sdfg0"}]
           }
+    
+    
+    if request.method == "POST":
+        
+        s_w_id =request.POST.get('username')
+        passwordU =request.POST.get('password')
+        
+        user = authenticate(username=usernameU,password=passwordU)
+        if user is not None:
+            login(request,user)
+            return HttpResponseRedirect('/home') 
+
+    #if loginU:
+     #   if emailU=="night" :
+      #      return HttpResponseRedirect('/home')  
+    
     return render(request,'html/stickywall.html',data)
   

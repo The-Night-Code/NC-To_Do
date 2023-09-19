@@ -28,3 +28,94 @@
                     
                    {% endfor %}
                 </div>
+
+
+
+                {% define 1 as index2 %}
+                {% for i in sticky_wall_c %} 
+                  
+                  {%if index2 == 1 %}
+                  <div class="templatemo-flex-row flex-content-row">
+                   {% define 2 as index2 %}
+
+                  {% else %}
+                    {%if index2 == 2 %}
+                      {% define 3 as index2 %}
+                    
+                    {% else %}
+                      {%if index2 == 3 %}
+                      {% define 4 as index2 %}
+                    
+                      {% else %}
+                        {%if index2 == 4 %}
+                          </div>
+                          {% define 1 as index2 %}
+                        {% endif %}
+                      {% endif %}
+                    {% endif %}
+                  {% endif %}
+
+
+
+
+                  {% define sticky_wall_c.count as index2 %}
+                {% with index2 % 3 as index %}
+                {% for i in sticky_wall_c %} 
+                  
+                  {%if index == 1 %}
+                  <div class="templatemo-flex-row flex-content-row">
+                   {% define 2 as index2 %}
+                   {% endif %}
+                        
+
+                         
+                      
+                    {%if index2 % 3 == 0 %}
+                      </div>
+                    {% endif %}
+                  
+
+                  
+                    <div class="templatemo-content-widget white-bg col-1 ">
+                      <h2 class="text-uppercase">{{i.title}}</h2>  
+                      <p>{{i.title}}</p>
+                    </div>
+                  
+                 {% endfor %}
+
+                 {% endwith %}
+
+
+
+
+
+
+
+                 =============================
+
+
+
+
+                 {% with 0 as index2 %}
+                  {% for i in sticky_wall_c %} 
+                  {% modu index2 as index2 %}
+
+                    {% if index2 == 1 %}
+                      <div class="templatemo-flex-row flex-content-row">
+                    {% endif %}
+
+                      <div class="templatemo-content-widget white-bg col-1 ">
+                        <h2 class="text-uppercase">{{i.title}}</h2>  
+                        <p>{{i.title}}</p>
+                        <p>{{index2}}</p>
+                      </div>
+
+
+                    {% if index2 == 3 %}
+                      </div>
+                      {% define 1 as index2 %}
+                    {% endif %}
+
+
+                   {% endfor %}
+                   {% endwith %}

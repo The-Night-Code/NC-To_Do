@@ -5,5 +5,8 @@ register= template.Library()
 def define(val=None):
     return val
 
-def add_1(val=None):
+
+
+@register.simple_tag
+def modu(val):
     return val+1
