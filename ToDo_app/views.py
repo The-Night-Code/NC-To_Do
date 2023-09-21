@@ -121,6 +121,10 @@ def StickyWall(request):
     
     if request.method == "POST":
         
+        
+        
+        
+        
         s_w_id =request.POST.get('username')
         passwordU =request.POST.get('password')
         

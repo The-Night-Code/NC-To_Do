@@ -29,12 +29,13 @@
           display: block;
           padding: 0 50px;
           border-left: 2px solid #c5c5c5;
+          width:100%;
         }
         .tablinks:hover, .tablinks.active {color: #39ADB4;}
 
 
         .templatemo_sticky_wall{
-          width:20%;
+          width:30%;
           height:350px;
           border-radius: 10px;
           padding: 30px;
@@ -105,8 +106,8 @@
             <div class="row">
               <nav class="templatemo-top-nav col-lg-12 col-md-12">
                 <ul class="text-uppercase"><!-- class="active"-->
-                  <li><button class="tablinks" id="t1" onclick="openCity(event, 'SW','t1')" >Sticky Wall</button></li>
-                  <li><button class="tablinks" id="t2" onclick="openCity(event, 'ADD_SW','t2')">ADD Sticky Wall</button></li>
+                  <li><button class="tablinks" id="t1" onclick="openTAB(event, 'SW','t1')" >Sticky Wall</button></li>
+                  <li><button class="tablinks" id="t2" onclick="openTAB(event, 'ADD_SW','t2')">ADD Sticky Wall</button></li>
                 </ul>  
               </nav> 
             </div>
@@ -114,14 +115,11 @@
 
 
 
-        <div class="templatemo-content-container">
-          <div class="templatemo-flex-row flex-content-row">
+        <div class="templatemo-content-container" >
+          <div class=" flex-content-row" >
 
-
-            
             <div id="SW" class="tabcontent" >
-              
-              <div class="templatemo-content-container">
+              <div class="templatemo-content-container" >
 
                 <!--  first row-->
                 
@@ -132,12 +130,12 @@
                 {% define 1 as index2 %}
                   {% for i in sticky_wall_c %} 
                     
-
+                  
                     {% if index2 == 1 %}
-                      <div class="templatemo-flex-row flex-content-row">
+                      <div class="templatemo-flex-row flex-content-row" style="width:100%;">
                       {% define 2 as index2 %}
                       <div class="templatemo-content-widget white-bg col-1 ">
-                        <Button type="Submit"class="sticky_wall_remove" name=""  value="{{i.id}}"><i class="fa fa-times"></i></Button>
+                        <Button type="Submit"class="sticky_wall_remove" name="button_{{i.id}}"  value="{{i.id}}"><i class="fa fa-times"></i></Button>
                         
 
                         <h2 class="text-uppercase">{{i.title}}</h2>  
@@ -147,15 +145,15 @@
                     {% else %}
                       {% if index2 == 2 %}
                         {% define 3 as index2 %}
-                        <div class="templatemo-content-widget white-bg col-1 ">
-                          <Button type="Submit"class="sticky_wall_remove" name=""  value="{{i.id}}"><i class="fa fa-times"></i></Button>
+                        <div class="templatemo-content-widget white-bg col-1 " style="width:20%;">
+                          <Button type="Submit"class="sticky_wall_remove" name="button_{{i.id}}"  value="{{i.id}}"><i class="fa fa-times"></i></Button>
                           <h2 class="text-uppercase">{{i.title}}</h2>  
                           <p>{{i.content}}</p>
                         </div>
                       {% else %}
                           {% if index2 == 3 %}
                           <div class="templatemo-content-widget white-bg col-1 ">
-                            <Button type="Submit"class="sticky_wall_remove" name=""  value="{{i.id}}"><i class="fa fa-times"></i></Button>
+                            <Button type="Submit"class="sticky_wall_remove" name="button_{{i.id}}"  value="{{i.id}}"><i class="fa fa-times"></i></Button>
                             <h2 class="text-uppercase">{{i.title}}</h2>  
                             <p>{{i.content}}</p>
                           </div>
@@ -171,6 +169,7 @@
                       
                     
                    {% endfor %}
+                   
                 </div>
               </form>
                 
@@ -188,7 +187,35 @@
             <!-- Second Tab-->
 
             <div id="ADD_SW" class="tabcontent" style="display:none;">
-              
+              <div class="templatemo-content-container" >
+              <div class="row form-group">
+                <div class="col-lg-12 form-group">                   
+                    <label class="control-label" for="inputNote">Note</label>
+                    <textarea class="form-control" id="inputNote" rows="3"></textarea>
+                </div>
+              </div>
+
+
+              <div class="row form-group">
+                <div class="col-lg-6 col-md-6 form-group">
+                  <div>
+                    <label class="control-label templatemo-block">Email Option</label> 
+                    <div class="templatemo-block margin-bottom-5">
+                      <input type="radio" name="emailOptions" id="r1" value="html" checked>
+                      <label for="r1" class="font-weight-400"><span></span>HTML Format</label>
+                    </div>
+                    <div class="templatemo-block margin-bottom-5">
+                      <input type="radio" name="emailOptions" id="r2" value="plain">
+                      <label for="r2" class="font-weight-400"><span></span>Plain Text</label>
+                    </div>
+                    <div class="templatemo-block margin-bottom-5">
+                      <input type="radio" name="emailOptions" id="r3" value="rich">
+                      <label for="r3" class="font-weight-400"><span></span>Rich Text</label>
+                    </div>                    
+                  </div>                  
+                </div>
+              </div>
+            </div>
             </div>
 
 
@@ -359,18 +386,18 @@
       
 
     
-      function openCity(evt, cityName,id) {
+      function openTAB(evt, tabName,id) {
         var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tabcontent");
-                for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
+          tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+              tabcontent[i].style.display = "none";
             }
         tablinks = document.getElementsByClassName("tablinks");
         for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace("active", "");
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
         index=i;
         }
-        document.getElementById(cityName).style.display = "block";
+        document.getElementById(tabName).style.display = "block";
         evt.currentTarget.className += " active";
     }
 
